@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srećan rođendan Tarooo</title>
     <style>
-      /* Body stil */
+      /* Body stil sa animacijom pozadine */
       body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -13,9 +13,17 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background: linear-gradient(to right, #001f3f, #0074D9);
         overflow: hidden;
         text-align: center;
+        background: linear-gradient(270deg, #001f3f, #0074D9, #00aaff, #001f3f);
+        background-size: 800% 800%;
+        animation: gradientMove 20s ease infinite;
+      }
+
+      @keyframes gradientMove {
+        0% {background-position:0% 50%;}
+        50% {background-position:100% 50%;}
+        100% {background-position:0% 50%;}
       }
 
       /* Link stil */
@@ -67,11 +75,11 @@
   </head>
   <body>
     <!-- Tekst i link -->
-    <a href="https://open.spotify.com/playlist/5p9Qc3sSzEtqGpAKPMD4bO?si=1f1e4b871e414938&pt=f13c835c0534a780781821bc7914b645">
-      srecan rodjendan taro<br>klikni me
+    <a href="https://open.spotify.com/playlist/5p9Qc3sSzEtqGpAKPMD4bO?si=a1446c15ef344001&pt=ff55d1a39cce8d8b970e6694cd47d357">
+      srecan rodjendann taroo <3 <br> klikni mee
     </a>
 
-    <!-- Diskretni baloni -->
+    <!-- Baloni -->
     <div class="balloon" style="left: 10%;">🎈</div>
     <div class="balloon" style="left: 50%; animation-delay: 1s;">🎈</div>
     <div class="balloon" style="left: 80%; animation-delay: 2s;">🎈</div>
