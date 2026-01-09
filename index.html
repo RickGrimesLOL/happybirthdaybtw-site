@@ -8,6 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
@@ -17,10 +21,15 @@ body{
   animation:bg 20s ease infinite;
   display:flex;
   justify-content:center;
-  align-items:center;
-  overflow:hidden;
+  align-items:flex-start;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
   color:white;
+  padding:40px 0;
+  position:relative;
 }
+
 @keyframes bg{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
@@ -31,13 +40,14 @@ body{
 #intro{
   text-align:center;
   animation:fadeIn 1.5s ease forwards;
+  margin-top:120px;
 }
 #intro h1{
   font-size:clamp(26px,6vw,34px);
   margin-bottom:10px;
 }
 #intro p{
-  opacity:.8;
+  opacity:.85;
   font-size:14px;
   margin-bottom:30px;
 }
@@ -60,7 +70,10 @@ body{
 #content{
   display:none;
   animation:fadeUp 1.2s ease forwards;
+  width:100%;
+  justify-content:center;
 }
+
 .card{
   background:rgba(255,255,255,.12);
   backdrop-filter:blur(14px);
@@ -71,15 +84,19 @@ body{
   text-align:center;
   box-shadow:0 20px 40px rgba(0,0,0,.35);
 }
+
 h2{
   margin-bottom:8px;
 }
+
 .subtitle{
   font-size:14px;
   opacity:.85;
   margin-bottom:20px;
   font-style:italic;
 }
+
+/* HERO IMAGE */
 .birthday-image{
   width:140px;
   height:140px;
@@ -87,7 +104,12 @@ h2{
   border-radius:22px;
   border:4px solid white;
   margin-bottom:20px;
+  box-shadow:
+    0 0 25px rgba(255,255,255,0.35),
+    0 0 60px rgba(0,170,255,0.35);
 }
+
+/* MUSIC BUTTON */
 .music-btn{
   display:inline-block;
   margin-bottom:30px;
@@ -102,18 +124,33 @@ h2{
 .music-btn:hover{
   background:#ff5ec4;
 }
+
+/* IMAGES */
 .images{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:15px;
 }
+
 .images img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
   border-radius:18px;
   border:3px solid white;
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.35),
+    0 0 20px rgba(255,255,255,0.15);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
+
+.images img:hover{
+  transform:scale(1.04);
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.45),
+    0 0 30px rgba(255,255,255,0.35);
+}
+
 .images img:nth-child(2){transform:rotate(-3deg)}
 .images img:nth-child(3){transform:rotate(2deg)}
 
@@ -132,13 +169,14 @@ h2{
   to{opacity:1;transform:translateY(0)}
 }
 
-/* hearts */
+/* HEARTS */
 .heart{
   position:absolute;
   bottom:-40px;
   font-size:24px;
   opacity:.7;
   animation:rise 10s linear infinite;
+  pointer-events:none;
 }
 @keyframes rise{
   from{transform:translateY(0)}
@@ -151,19 +189,25 @@ h2{
 
 <div id="intro">
   <h1>taro</h1>
-  <p>hvala ti za sve <br>jako si mi ulepsala zivot od 2024 <3 <p>
+  <p>
+    hvala ti za sve <br>
+    jako si mi ulepsala zivot od 2024 &lt;3
+  </p>
   <button onclick="openSite()">nastavi</button>
 </div>
 
 <div id="content">
   <div class="card">
     <h2>srećan rođendan taroo 🧦🤍</h2>
-    <div class="subtitle">nije bas nesto al eto jejj </div>
+    <div class="subtitle">nije bas nesto al eto jejj</div>
 
-    <img class="birthday-image"
-      src="https://raw.githubusercontent.com/RickGrimesLOL/party4u-site/main/images%20(1).jpg">
+    <img
+      class="birthday-image"
+      src="https://raw.githubusercontent.com/RickGrimesLOL/party4u-site/main/images%20(1).jpg"
+      alt="birthday">
 
-    <a class="music-btn"
+    <a
+      class="music-btn"
       href="https://open.spotify.com/playlist/5p9Qc3sSzEtqGpAKPMD4bO">
       klikni za pravi poklon
     </a>
@@ -181,6 +225,7 @@ h2{
   </div>
 </div>
 
+<!-- hearts -->
 <div class="heart" style="left:10%">❤️</div>
 <div class="heart" style="left:30%;animation-delay:2s">❤️</div>
 <div class="heart" style="left:50%;animation-delay:4s">❤️</div>
@@ -190,8 +235,9 @@ h2{
 <script>
 function openSite(){
   document.getElementById('intro').style.display='none';
-  document.getElementById('content').style.display='flex';
-  document.getElementById('content').style.justifyContent='center';
+  const content = document.getElementById('content');
+  content.style.display='flex';
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 </script>
 
