@@ -40,17 +40,33 @@ body{
 #intro{
   text-align:center;
   animation:fadeIn 1.5s ease forwards;
-  margin-top:120px;
+  margin-top:80px;
 }
+
 #intro h1{
   font-size:clamp(26px,6vw,34px);
   margin-bottom:10px;
 }
+
 #intro p{
   opacity:.85;
   font-size:14px;
-  margin-bottom:30px;
+  margin-bottom:20px;
 }
+
+.intro-image{
+  width:140px;
+  height:140px;
+  object-fit:cover;
+  border-radius:22px;
+  border:4px solid white;
+  margin:20px auto 30px;
+  display:block;
+  box-shadow:
+    0 0 25px rgba(255,255,255,0.35),
+    0 0 60px rgba(0,170,255,0.35);
+}
+
 #intro button{
   background:none;
   border:2px solid white;
@@ -61,6 +77,7 @@ body{
   cursor:pointer;
   transition:.3s;
 }
+
 #intro button:hover{
   background:white;
   color:#0074D9;
@@ -92,24 +109,10 @@ h2{
 .subtitle{
   font-size:14px;
   opacity:.85;
-  margin-bottom:20px;
+  margin-bottom:25px;
   font-style:italic;
 }
 
-/* HERO IMAGE */
-.birthday-image{
-  width:140px;
-  height:140px;
-  object-fit:cover;
-  border-radius:22px;
-  border:4px solid white;
-  margin-bottom:20px;
-  box-shadow:
-    0 0 25px rgba(255,255,255,0.35),
-    0 0 60px rgba(0,170,255,0.35);
-}
-
-/* MUSIC BUTTON */
 .music-btn{
   display:inline-block;
   margin-bottom:30px;
@@ -121,11 +124,11 @@ h2{
   box-shadow:0 0 25px #ff5ec4;
   transition:.3s;
 }
+
 .music-btn:hover{
   background:#ff5ec4;
 }
 
-/* IMAGES */
 .images{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -160,6 +163,17 @@ h2{
   opacity:.75;
 }
 
+/* SECRET MESSAGE */
+.secret{
+  margin-top:40px;
+  font-size:13px;
+  opacity:0;
+  transition:opacity 1.5s ease;
+  line-height:1.5;
+  font-style:italic;
+}
+
+/* ANIMATIONS */
 @keyframes fadeIn{
   from{opacity:0}
   to{opacity:1}
@@ -178,6 +192,7 @@ h2{
   animation:rise 10s linear infinite;
   pointer-events:none;
 }
+
 @keyframes rise{
   from{transform:translateY(0)}
   to{transform:translateY(-120vh)}
@@ -193,6 +208,12 @@ h2{
     hvala ti za sve <br>
     jako si mi ulepsala zivot od 2024 &lt;3
   </p>
+
+  <img
+    class="intro-image"
+    src="https://raw.githubusercontent.com/RickGrimesLOL/party4u-site/main/images%20(1).jpg"
+    alt="intro image">
+
   <button onclick="openSite()">nastavi</button>
 </div>
 
@@ -200,11 +221,6 @@ h2{
   <div class="card">
     <h2>srećan rođendan taroo 🧦🤍</h2>
     <div class="subtitle">nije bas nesto al eto jejj</div>
-
-    <img
-      class="birthday-image"
-      src="https://raw.githubusercontent.com/RickGrimesLOL/party4u-site/main/images%20(1).jpg"
-      alt="birthday">
 
     <a
       class="music-btn"
@@ -222,6 +238,14 @@ h2{
     <div class="bottom-text">
       nisam imao neke dobre slike oprosti lol
     </div>
+
+    <div class="secret" id="secret">
+      taro iskreno jako mi glupo sto smo samo odjednom prestali da pricamo
+      mislim kao pre i to i znam razlog i jako se kajem za sve.
+      ovo je na neki nacin i poklon i neko izvinjenje jer ne mogu da
+      prestanem da razmisljam o tome i srecan rodjendan
+    </div>
+
   </div>
 </div>
 
@@ -235,10 +259,16 @@ h2{
 <script>
 function openSite(){
   document.getElementById('intro').style.display='none';
-  const content = document.getElementById('content');
-  content.style.display='flex';
+  document.getElementById('content').style.display='flex';
   window.scrollTo({top:0, behavior:'smooth'});
 }
+
+window.addEventListener('scroll', () => {
+  const secret = document.getElementById('secret');
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+    secret.style.opacity = 1;
+  }
+});
 </script>
 
 </body>
