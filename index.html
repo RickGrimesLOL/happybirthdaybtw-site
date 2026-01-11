@@ -25,22 +25,32 @@ body {
   padding: 40px 20px;
 }
 
+.intro img {
+  width: 180px;
+  max-width: 70%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 12px; /* razmak ispod slike */
+}
+
 .intro h1 {
   font-size: 3rem;
   margin-bottom: 10px;
 }
 
 .scroll-text {
-  margin-top: 40px;
-  font-size: 1.2rem;
+  margin-top: 12px;
+  font-size: 1.2rem;   /* veličina ostaje ista */
   opacity: 0.8;
   animation: pulse 1.8s infinite;
 }
 
-@keyframes pulse {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+.new-text {
+  margin-top: 16px;    /* razmak ispod "skroluj dole" */
+  font-size: 1.6rem;   /* POVECANO */
+  opacity: 0.95;
+  text-align: center;
+  line-height: 1.5;
 }
 
 /* SONGS */
@@ -87,10 +97,10 @@ body {
   }
 }
 
-/* TEXT */
+/* TEXT NOTE */
 .note {
   max-width: 700px;
-  margin: 60px auto;
+  margin: 40px auto;
   text-align: center;
   font-size: 1rem;
   opacity: 0.9;
@@ -101,7 +111,7 @@ body {
 /* BUTTON */
 .button-wrap {
   text-align: center;
-  margin: 80px 0;
+  margin: 60px 0;
 }
 
 .button-wrap a {
@@ -141,48 +151,30 @@ body {
     opacity: 0;
   }
 }
+
+/* PULSE ANIMATION */
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
 </style>
 </head>
 
 <body>
-<img src="https://github.com/RickGrimesLOL/happybirthdaybtw-site/raw/main/images (1).jpg" 
 <div class="intro">
+  <img src="https://github.com/RickGrimesLOL/happybirthdaybtw-site/raw/main/images (1).jpg" alt="Slika">
   <h1>srecan rodjendan <br> 🧦❤️</h1>
   <div class="scroll-text">skroluj dole ⬇️</div>
-</div>
-
-  <style>.new-text {
-  margin-top: 28px;
-  font-size: 1,2rem;
-  opacity: 0.9;
-  text-align: center;
-}
-
-.songs-title {
-  text-align: center;
-  margin-bottom: 50px;
-  font-weight: 500;
-  opacity: 0.85;
-}
-</style>
-
   <p class="new-text">
-taro <br> iskreno kad god pricam s tobom <br> mood mi se promeni <br> i osecam se bolje 100 puta lol <br> hvala ti za sve dobre uspomene <br> stvarno si najjaca
+    taro <br> iskreno kad god pricam s tobom <br> mood mi se promeni <br> i osecam se bolje 100 puta lol <br> hvala ti za sve dobre uspomene <br> stvarno si najjaca
   </p>
 </div>
 
-
 <div class="songs">
-  <h2 style="
-  text-align:center;
-  margin-bottom:50px;
-  font-weight:500;
-  letter-spacing:1px;
-  opacity:0.85;
-">
-  This reminded me of you
-</h2>
-
+  <h2 style="text-align:center; margin-bottom:50px; font-weight:500; letter-spacing:1px; opacity:0.85;">
+    This reminded me of you
+  </h2>
 
   <div class="song">
     <img src="https://github.com/RickGrimesLOL/happybirthdaybtw-site/raw/main/2dcdc8ffb20ffef584eaa13f1afbe28a.1000x1000x1.png">
@@ -208,7 +200,6 @@ taro <br> iskreno kad god pricam s tobom <br> mood mi se promeni <br> i osecam s
     <img src="https://raw.githubusercontent.com/RickGrimesLOL/happybirthdaybtw-site/main/images (18)_32205645162272.jpeg">
     <p><b>Kafe aparat</b><br>Buč Kesidi</p>
   </div>
-
 </div>
 
 <div class="note">
@@ -222,7 +213,7 @@ taro <br> iskreno kad god pricam s tobom <br> mood mi se promeni <br> i osecam s
 
 <div class="button-wrap">
   <a href="https://open.spotify.com/playlist/5p9Qc3sSzEtqGpAKPMD4bO?si=5XB6L8LOSeqGWwIByXCu3A&pt=2bd33edc88cc58be48d7b4837ae156ab" target="_blank">
-    klikni ovde za poklon 
+    klikni ovde za poklon  
   </a>
 </div>
 
